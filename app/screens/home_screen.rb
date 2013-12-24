@@ -12,9 +12,20 @@ class HomeScreen < ProMotion::GroupedTableScreen
       title: 'Help',
       cells: [
         { title: 'Support', action: :support },
+        { title: 'Articles', action: :articles },
         { title: 'Feedback', action: :feedback}
         ]
       }]
+  end
+
+  def on_return(args={})
+    if args[:saved]
+      self.title = "Saved!"
+    end
+  end
+
+  def articles
+    open ArticleScreen
   end
 
   def about_promotion
